@@ -1,18 +1,32 @@
-<!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>Orcamento</title>
+<h:head>	
+	<title>Cadastro de Orçamento</title>
 </h:head>
 
 <h:body>
+	
 	<h:form>
-		<h:commandButton value="Metodo" action="#{orcamentoBean.metodo}"></h:commandButton>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome do projeto"/>
+			<h:inputText value="#{orcamentoBean.orcamento.nome}" />
+			
+			<h:outputLabel value="Valor"/>
+			<h:inputText value="#{orcamentoBean.orcamento.valor}" />
+			
+			<h:outputLabel value="País"/>
+			<h:selectOneMenu>
+				<f:selectItem itemLabel="Brasil" itemValue="BRL"/>
+				<f:selectItem itemLabel="EUA" itemValue="USD"/>
+			</h:selectOneMenu>
+		</h:panelGrid>
+		
+		<h:commandButton value="Cadastrar" action="#{orcamentoBean.cadastra}"/>		
 	</h:form>
+	
 </h:body>
-
 </html>

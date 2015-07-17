@@ -1,12 +1,32 @@
 package orcamento;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-@ManagedBean
+import br.com.orcamento.Orcamento;
+
+@Named
 public class OrcamentoBean {
 
-	public void metodo() {
-		System.out.println("Its Working!");
+	private Orcamento orcamento = new Orcamento();
+
+	@Inject
+	private Orcamentos orcamentos;
+
+	@Deprecated
+	public OrcamentoBean() {
+	}
+	
+	public void cadastra() {
+		orcamentos.salva("Salvando");
+	}
+
+	public Orcamento getOrcamento() {
+		return orcamento;
+	}
+
+	public void setOrcamento(Orcamento orcamento) {
+		this.orcamento = orcamento;
 	}
 	
 }
