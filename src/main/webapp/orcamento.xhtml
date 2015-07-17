@@ -19,13 +19,32 @@
 			<h:inputText value="#{orcamentoBean.orcamento.valor}" />
 			
 			<h:outputLabel value="País"/>
-			<h:selectOneMenu>
+			<h:selectOneMenu value="#{orcamentoBean.orcamento.pais}">
 				<f:selectItem itemLabel="Brasil" itemValue="BRL"/>
 				<f:selectItem itemLabel="EUA" itemValue="USD"/>
 			</h:selectOneMenu>
 		</h:panelGrid>
 		
 		<h:commandButton value="Cadastrar" action="#{orcamentoBean.cadastra}"/>		
+	</h:form>
+	
+	<h:form>
+		<h:dataTable value="#{orcamentoBean.lista}" var="orcamento">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{orcamento.nome}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Valor</f:facet>
+				<h:outputText value="#{orcamento.valor}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">País</f:facet>
+				<h:outputText value="#{orcamento.pais}"/>
+			</h:column>
+		</h:dataTable>
 	</h:form>
 	
 </h:body>

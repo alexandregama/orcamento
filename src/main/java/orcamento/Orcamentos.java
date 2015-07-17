@@ -1,7 +1,13 @@
 package orcamento;
 
+import java.util.List;
+
+import br.com.orcamento.Orcamento;
+
 public interface Orcamentos {
 
-	void salva(String string);
+	void salva(Orcamento orcamento);
+
+	List<Orcamento> getLista();
 
 }

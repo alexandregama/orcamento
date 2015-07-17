@@ -9,7 +9,7 @@ public class Orcamento {
 	private BigDecimal valor;
 	
 	private String pais;
-	
+
 	@Override
 	public String toString() {
 		return "Orcamento [nome=" + nome + ", valor=" + valor + ", pais="
