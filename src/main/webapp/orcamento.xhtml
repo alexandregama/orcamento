@@ -25,7 +25,12 @@
 			</h:selectOneMenu>
 		</h:panelGrid>
 		
-		<h:commandButton value="Cadastrar" action="#{orcamentoBean.cadastra}"/>		
+		<h:commandButton id="cadastrar" value="Cadastrar" action="#{orcamentoBean.cadastra}" rendered="#{empty orcamentoBean.orcamento.id}"/>
+		
+		<h:panelGroup rendered="#{not empty orcamentoBean.orcamento.id}">
+			<h:commandButton id="atualizar" value="Atualizar" action="#{orcamentoBean.cadastra}" /> 		
+			<h:commandButton id="cancelar" value="Cancelar" action="#{orcamentoBean.cancela}"/>
+		</h:panelGroup>	
 	</h:form>
 	
 	<h:form>
@@ -53,6 +58,9 @@
 			<h:column>
 				<f:facet name="header">Ações</f:facet>
 				<h:commandLink value="Remover" action="#{orcamentoBean.remove(orcamento)}">
+				</h:commandLink> | 
+				<h:commandLink value="Alterar">
+					<f:setPropertyActionListener value="#{orcamento}" target="#{orcamentoBean.orcamento}"/>
 				</h:commandLink>
 			</h:column>
 		</h:dataTable>

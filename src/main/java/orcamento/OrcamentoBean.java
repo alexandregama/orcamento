@@ -1,16 +1,19 @@
 package orcamento;
 
+import java.io.Serializable;
 import java.util.Collection;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.orcamento.Orcamento;
 
 @Named
-@RequestScoped
-public class OrcamentoBean {
+@ViewScoped
+public class OrcamentoBean implements Serializable {
+
+	private static final long serialVersionUID = -1L;
 
 	private Orcamento orcamento = new Orcamento();
 
@@ -24,13 +27,25 @@ public class OrcamentoBean {
 	}
 	
 	public void cadastra() {
-		orcamentos.salva(orcamento);
+		if (orcamento.getId() == null) {
+			orcamentos.cadastra(orcamento);
+		} else {
+			orcamentos.atualiza(orcamento);
+		}
+		
+		atualizaFormulario();
 	}
 	
 	public void remove(Orcamento orcamento) {
 		orcamentos.remove(orcamento);
 		
 		atualizaFormulario();
+	}
+	
+	public String cancela() {
+		atualizaFormulario();
+		
+		return "orcamento";
 	}
 
 	public Collection<Orcamento> getLista() {
@@ -42,6 +57,7 @@ public class OrcamentoBean {
 	
 	private void atualizaFormulario() {
 		this.lista = null;
+		this.orcamento = new Orcamento();
 	}
 
 	public Orcamento getOrcamento() {
