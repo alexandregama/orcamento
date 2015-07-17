@@ -3,6 +3,7 @@ package orcamento;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Singleton;
 
@@ -25,6 +26,17 @@ public class HashMapOrcamentoDao implements Orcamentos {
 	@Override
 	public Collection<Orcamento> getLista() {
 		return orcamentos.values();
+	}
+
+	@Override
+	public void remove(Orcamento orcamento) {
+		Set<Integer> codigos = orcamentos.keySet();
+		for (Integer codigo : codigos) {
+			if (codigo.equals(orcamento.getId())) {
+				orcamentos.remove(codigo);
+				break;
+			}
+		}
 	}
 	
 }

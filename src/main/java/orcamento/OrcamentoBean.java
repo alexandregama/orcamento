@@ -27,11 +27,21 @@ public class OrcamentoBean {
 		orcamentos.salva(orcamento);
 	}
 	
+	public void remove(Orcamento orcamento) {
+		orcamentos.remove(orcamento);
+		
+		atualizaFormulario();
+	}
+
 	public Collection<Orcamento> getLista() {
 		if (lista == null) {
 			lista = orcamentos.getLista();
 		}
 		return lista;
+	}
+	
+	private void atualizaFormulario() {
+		this.lista = null;
 	}
 
 	public Orcamento getOrcamento() {

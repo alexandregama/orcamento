@@ -10,4 +10,6 @@ public interface Orcamentos {
 
 	Collection<Orcamento> getLista();
 
+	void remove(Orcamento orcamento);
+
 }

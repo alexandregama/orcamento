@@ -31,6 +31,11 @@
 	<h:form>
 		<h:dataTable value="#{orcamentoBean.lista}" var="orcamento">
 			<h:column>
+				<f:facet name="header">Código</f:facet>
+				<h:outputText value="#{orcamento.id}"/>
+			</h:column>
+			
+			<h:column>
 				<f:facet name="header">Nome</f:facet>
 				<h:outputText value="#{orcamento.nome}"/>
 			</h:column>
@@ -43,6 +48,12 @@
 			<h:column>
 				<f:facet name="header">País</f:facet>
 				<h:outputText value="#{orcamento.pais}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink value="Remover" action="#{orcamentoBean.remove(orcamento)}">
+				</h:commandLink>
 			</h:column>
 		</h:dataTable>
 	</h:form>
