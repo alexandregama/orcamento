@@ -1,6 +1,6 @@
 package orcamento;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,7 +17,7 @@ public class OrcamentoBean {
 	@Inject
 	private Orcamentos orcamentos;
 	
-	private List<Orcamento> lista;
+	private Collection<Orcamento> lista;
 
 	@Deprecated
 	public OrcamentoBean() {
@@ -27,7 +27,7 @@ public class OrcamentoBean {
 		orcamentos.salva(orcamento);
 	}
 	
-	public List<Orcamento> getLista() {
+	public Collection<Orcamento> getLista() {
 		if (lista == null) {
 			lista = orcamentos.getLista();
 		}

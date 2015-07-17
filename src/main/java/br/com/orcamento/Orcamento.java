@@ -4,16 +4,18 @@ import java.math.BigDecimal;
 
 public class Orcamento {
 
+	private Integer id;
+	
 	private String nome;
 	
 	private BigDecimal valor;
 	
 	private String pais;
-
+	
 	@Override
 	public String toString() {
-		return "Orcamento [nome=" + nome + ", valor=" + valor + ", pais="
-				+ pais + "]";
+		return "Orcamento [id=" + id + ", nome=" + nome + ", valor=" + valor
+				+ ", pais=" + pais + "]";
 	}
 
 	public String getNome() {
@@ -38,6 +40,14 @@ public class Orcamento {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }
