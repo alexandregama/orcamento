@@ -36,24 +36,27 @@ public class HashMapOrcamentoDao implements Orcamentos, Serializable {
 
 	@Override
 	public void remove(Orcamento orcamento) {
-		Set<Integer> codigos = orcamentos.keySet();
-		for (Integer codigo : codigos) {
-			if (codigo.equals(orcamento.getId())) {
-				orcamentos.remove(codigo);
-				break;
-			}
+		Orcamento orcamentoEncontrado = busca(orcamento);
+		if (orcamentoEncontrado != null) {
+			orcamentos.remove(orcamento.getId());
 		}
 	}
 
 	@Override
 	public void atualiza(Orcamento orcamento) {
+		Orcamento orcamentoEncontrado = busca(orcamento);
+		if (orcamentoEncontrado != null) {
+			orcamentos.put(orcamento.getId(), orcamento);
+		}
+	}
+
+	private Orcamento busca(Orcamento orcamento) {
 		Set<Integer> codigos = orcamentos.keySet();
 		for (Integer codigo : codigos) {
 			if (codigo.equals(orcamento.getId())) {
-				orcamentos.put(codigo, orcamento);
-				break;
+				return orcamento;
 			}
-		}
+		}		
+		return null;
 	}
-	
 }
