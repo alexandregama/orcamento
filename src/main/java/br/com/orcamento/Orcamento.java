@@ -12,6 +12,16 @@ public class Orcamento {
 	
 	private String pais;
 	
+	public Orcamento(Integer id, String nome, BigDecimal valor, String pais) {
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+		this.pais = pais;
+	}
+	
+	public Orcamento() {
+	}
+
 	@Override
 	public String toString() {
 		return "Orcamento [id=" + id + ", nome=" + nome + ", valor=" + valor

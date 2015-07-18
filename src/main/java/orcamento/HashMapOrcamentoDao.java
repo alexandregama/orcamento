@@ -1,6 +1,7 @@
 package orcamento;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +21,11 @@ public class HashMapOrcamentoDao implements Orcamentos, Serializable {
 	private Integer primaryKey = 1;
 	
 	public HashMapOrcamentoDao() {
+		orcamentos.put(1, new Orcamento(1, "FreeShop", new BigDecimal(9000), "BRL"));
+		orcamentos.put(2, new Orcamento(2, "PetStore", new BigDecimal(5000), "BRL"));
+		orcamentos.put(3, new Orcamento(3, "OnlineCat", new BigDecimal(8000), "URD"));
+		orcamentos.put(4, new Orcamento(4, "PhoneStore", new BigDecimal(2000), "URD"));
+		orcamentos.put(5, new Orcamento(5, "MicroStore", new BigDecimal(7000), "BRL"));
 	}
 	
 	@Override
